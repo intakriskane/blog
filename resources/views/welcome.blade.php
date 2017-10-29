@@ -1,16 +1,10 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('title') 
+    Home
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
+@section('homestyle')
         <style>
             html, body {
                 background-color: #fff;
@@ -60,36 +54,152 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 10px;
+                color: #1D48EF;
             }
+            /* Three columns side by side */
+            .column {
+                float: left;
+                width: 33.33%;
+                margin-bottom: 30px;
+                padding: 0 8px;
+            }
+
+            /* Display the columns below each other instead of side by side on small screens */
+            @media (max-width: 650px) {
+                .column {
+                    width: 100%;
+                    display: block;
+                }
+            }
+
+            /* Add some shadows to create a card effect */
+            .card {
+                box-shadow: 0 4px 8px 0 #1D48EF;
+
+            }
+
+            /* Some left and right padding inside the container */
+            .col-container {
+                display: table;
+                width: 100%;
+            }
+
+            /* Clear floats */
+            .container::after, .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            .btn{
+                margin-bottom: 7px;
+            }
+
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                color: #1D48EF;
+                text-align: center;
+                box-shadow: 0 4px 8px 0 #1D48EF;
+            }
+
+            h2{
+                color: #1D48EF;
+            }
+
+            .btn-dark{
+                background: #1D48EF;
+                color: white;
+            }
+
         </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
+@endsection
 
+@section('content')
             <div class="content">
+                <!-- photo slides -->
                 <div class="title m-b-md">
-                    Laravel
+                    C'est la Vie!
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                        <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+                        </div>
+
+                        <div class="item">
+                        <img src="https://www.w3schools.com/howto/img_fjords_wide.jpg" style="width:100%">
+                        </div>
+
+                        <div class="item">
+                        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+                        </div>
+
+                        <div class="item">
+                        <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <!-- &#10094; -->
+                        <span class="glyphicon"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <!-- &#10095; -->
+                        <span class="glyphicon"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    </div>
+
+                <!-- 3 most recent articles -->
+                <div class="row">
+                    <div class="column">
+                        <div class="card">
+                            <!-- <img src="img1.jpg" alt="Jane" style="width:100%"> -->
+                                <h2>Article 1</h2>
+                                <p>article intro text is coming in this place from db. Nul dekumi scivolema ni, far piko vato makro zo, vir laringalo prirespondi ot. Hav ci post eksbi greka. Be tria rilativa iam, ojd hemi tabelvorto as. </p>
+                                <p><button class="btn btn-dark">Read more...</button></p>
+                        </div>
+                    </div>
+                
+                    <div class="column">
+                        <div class="card">
+                            <!-- <img src="img2.jpg" alt="Mike" style="width:100%"> -->
+                                <h2>Article 2</h2>
+                                <p>article intro text is coming in this place from db. Nul dekumi scivolema ni, far piko vato makro zo, vir laringalo prirespondi ot. Hav ci post eksbi greka. Be tria rilativa iam, ojd hemi tabelvorto as. </p>
+                                <p><button class="btn btn-dark">Read more...</button></p>
+                        </div>
+                    </div>
+                
+                    <div class="column">
+                        <div class="card">
+                            <!-- <img src="img3.jpg" alt="John" style="width:100%"> -->
+                                <h2>Article 3</h2>
+                                <p>article intro text is coming in this place from db. Nul dekumi scivolema ni, far piko vato makro zo, vir laringalo prirespondi ot. Hav ci post eksbi greka. Be tria rilativa iam, ojd hemi tabelvorto as.</p>
+                                <p><button class="btn btn-dark">Read more...</button></p>
+                        </div>
+                    </div>
+              </div>
+
+            <div class="footer">
+                <p style="margin-top:3px">© Cake is a lie!</p>
+            </div>
+
             </div>
         </div>
-    </body>
-</html>
+@endsection

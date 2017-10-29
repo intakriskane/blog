@@ -11,6 +11,22 @@
 |
 */
 
+//home route
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("home");
+
+//articles route
+Route::get('/articles', function () {
+    return view('articles');
+})->name("articles");
+
+// route to registration page
+Route::any('/register', function () {
+    return view('register');
+})->name("register");
+
+// route to login page
+Route::any('/login', function () {
+    return view('login');
+})->name("login");
