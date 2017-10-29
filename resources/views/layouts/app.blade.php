@@ -24,6 +24,9 @@
         .btn-primary{
             background: #1D48EF;
         }
+        a{
+            color: #1D48EF;
+        }
     </style>
 
 

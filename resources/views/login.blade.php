@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+    <div>
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li>Login</li>
+        </ul>
+    </div>    
     <div class="container" id="app">
     <div class="row" style="margin-top: -25px">
         <div class="col">
