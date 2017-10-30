@@ -18,7 +18,12 @@ Route::get('/', function () {
 
 //articles route
 Route::get('/articles', function () {
-    return view('articles');
+    $tasks = [
+        'go to store',
+        'dance on table',
+        'drink tea'
+    ];
+    return view('articles', compact('tasks'));
 })->name("articles");
 
 // route to registration page
@@ -30,3 +35,4 @@ Route::any('/register', function () {
 Route::any('/login', function () {
     return view('login');
 })->name("login");
+

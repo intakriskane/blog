@@ -14,6 +14,11 @@
     </div>
 
     <div>some bunch of articles </div>
+    <div>
+    @foreach($tasks as $task)
+        <li>{{ $task }}</li>
+    @endforeach
+    </div>
 
 @endsection
 

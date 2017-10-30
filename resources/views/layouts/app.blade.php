@@ -27,6 +27,16 @@
         a{
             color: #1D48EF;
         }
+
+        .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                color: #1D48EF;
+                text-align: center;
+                box-shadow: 0 5px 8px 0 #1D48EF;
+            }
     </style>
 
 
@@ -97,6 +107,11 @@
             </div>
         </nav>
         @yield('content')
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <p style="margin-top:3px">© Cake is a lie!</p>
     </div>
 
     <!-- Scripts -->

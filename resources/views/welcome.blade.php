@@ -96,16 +96,6 @@
                 margin-bottom: 7px;
             }
 
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                color: #1D48EF;
-                text-align: center;
-                box-shadow: 0 4px 8px 0 #1D48EF;
-            }
-
             h2{
                 color: #1D48EF;
             }
@@ -195,10 +185,6 @@
                         </div>
                     </div>
               </div>
-
-            <div class="footer">
-                <p style="margin-top:3px">© Cake is a lie!</p>
-            </div>
 
             </div>
         </div>
