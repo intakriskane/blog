@@ -16,15 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name("home");
 
-//articles route
-Route::get('/articles', function () {
-    $tasks = [
-        'go to store',
-        'dance on table',
-        'drink tea'
-    ];
-    return view('articles', compact('tasks'));
-})->name("articles");
+
 
 // route to registration page
 Route::any('/register', function () {
@@ -35,4 +27,28 @@ Route::any('/register', function () {
 Route::any('/login', function () {
     return view('login');
 })->name("login");
+
+
+
+
+
+//tasks route
+// Route::get('/articles', function () {
+//     $tasks = [
+//         'go running',
+//         'jump around',
+//         'cry'
+//     ];
+//     return view ('articles', compact('tasks'));
+// })->name("articles");
+
+Route::get('/tasks', function () {
+    $tasks = App\Task::all();
+    return view ('tasks.index', compact('tasks')); //passes on all tasks as objects
+});
+
+Route::get('/tasks/{task}', function ($id) {
+    $task = App\Task::find($id);
+    return view ('tasks.show', compact('task')); //passes on all tasks as objects
+});
 

@@ -37,16 +37,16 @@ class HomeController extends Controller
 
 
 
-    public function user($userId)
-    {
-        $user = User::find($userId);
+    // public function user($userId)
+    // {
+    //     $user = User::find($userId);
         
-        return view('articles', ['user' => $user, 'foo' => 'bar']);        
+    //     return view('articles', ['user' => $user, 'foo' => 'bar']);        
         
-    }
+    // }
 
-    public function test2($some_id, $some_other_id = null)
-    {
-        return view('articles');        
-    }
+    // public function test2($some_id, $some_other_id = null)
+    // {
+    //     return view('articles');        
+    // }
 }

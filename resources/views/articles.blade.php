@@ -16,7 +16,7 @@
     <div>some bunch of articles </div>
     <div>
     @foreach($tasks as $task)
-        <li>{{ $task }}</li>
+        <li>{{ $task->body }}</li>
     @endforeach
     </div>
 
