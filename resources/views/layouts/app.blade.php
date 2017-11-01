@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('homestyle')
+    @yield('postStyle')
     <style>
         .navbar{
             box-shadow: 0 4px 8px 0 #1D48EF;

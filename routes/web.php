@@ -37,3 +37,8 @@ Route::any('/articles', function(){
 //     $allArticles = DB::table('posts')->get();
 //     return $allArticles;
 // })->name("articles");
+
+Route::any('/posts/{post}', function($id){
+    $article = DB::table('posts')->find($id);
+    return view('posts.post', compact('article'));
+})->name("posts");
