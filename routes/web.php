@@ -27,10 +27,10 @@ Route::any('/login', function () {
 })->name("login");
 
 //all articles in Articles page
-Route::any('/articles', function(){
-    $allArticles = DB::table('posts')->get();
-    return view('articles', compact('allArticles'));
-})->name("articles");
+// Route::any('/articles', function(){
+//     $allArticles = DB::table('posts')->get();
+//     return view('articles', compact('allArticles'));
+// })->name("articles");
 
 //working all articles
 // Route::any('/articles', function(){
@@ -38,7 +38,14 @@ Route::any('/articles', function(){
 //     return $allArticles;
 // })->name("articles");
 
-Route::any('/posts/{post}', function($id){
+//individual article in it's own page
+Route::any('/articles/{post}', function($id){
     $article = DB::table('posts')->find($id);
-    return view('posts.post', compact('article'));
-})->name("posts");
+    return view('posts.article', compact('article'));
+})->name("post");
+
+//all articles in Articles page
+Route::any('/articles', function(){
+    $allArticles = DB::table('posts')->get();
+    return view('posts.articles', compact('allArticles'));
+})->name("articles");
