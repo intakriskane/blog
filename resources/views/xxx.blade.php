@@ -15,14 +15,9 @@
     </div>
 
     <!-- articles -->
-    @foreach ($allArticles as $post)
-        <ul style="color: #1D48EF"><strong>{{ $post->title }}</strong></ul>
-        <ul>{{ $post->intro }}</ul>
-        <ul>
-            <a href="" class="right" style="float: right">
-                Read more...
-            </a>
-        </ul>
+    @foreach ($allArticles as $xxx)
+        <ul style="color: #1D48EF"><strong>{{ $xxx->title }}</strong></ul>
+        <ul>{{ $xxx->intro }}</ul>
         </br>
     @endforeach
     <div>
