@@ -12,10 +12,6 @@
 */
 
 //home route
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name("home");
-
 Route::get('/', function () {
     $top3 = DB::table('posts')->orderBy('id', 'desc')->take(3)->get();
     return view('welcome', compact('top3'));
@@ -55,8 +51,9 @@ Route::any('/articles', function(){
     return view('posts.articles', compact('allArticles'));
 })->name("articles");
 
-Route::any('/posts', function(){
-    $allArticles = DB::table('posts')->orderBy('id', 'desc')->take(3)->get();
-    // dd($allArticles);
-    return view('xxx', compact('allArticles'));
-})->name("xxx");
+
+
+Route::any('/articles', function(){
+    $allArticles = DB::table('posts')->orderBy('created_at', 'desc')->get();
+    return view('posts.articles', compact('allArticles'));
+})->name("articles");
