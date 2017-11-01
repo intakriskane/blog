@@ -127,19 +127,23 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                        <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+                        <!-- <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%"> -->
+                        <img src="/media/img2.jpg" style="width:100%">
                         </div>
 
                         <div class="item">
-                        <img src="https://www.w3schools.com/howto/img_fjords_wide.jpg" style="width:100%">
+                        <!-- <img src="https://www.w3schools.com/howto/img_fjords_wide.jpg" style="width:100%"> -->
+                        <img src="/media/img1.jpg" style="width:100%">
                         </div>
 
                         <div class="item">
-                        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+                        <!-- <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%"> -->
+                        <img src="/media/img3.jpg" style="width:100%">
                         </div>
 
                         <div class="item">
-                        <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
+                        <!-- <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%"> -->
+                        <img src="/media/img4.jpg" style="width:100%">
                         </div>
                     </div>
 

@@ -33,6 +33,8 @@
                 left: 0;
                 bottom: 0;
                 width: 100%;
+                background: #fff;
+                opacity: 0.8;
                 color: #1D48EF;
                 text-align: center;
                 box-shadow: 0 5px 8px 0 #1D48EF;
@@ -53,7 +55,8 @@
             <div class="container">
                 <div class="navbar-header">
                     <!-- Branding Image -->
-                    <img src="https://i1.wp.com/bluefeatherquill.com/wp-content/uploads/2017/02/cropped-cropped-LATEST-LOGO-HALF-SIZE-BLUE-FEATHER.jpg" height="50">
+                    <!-- <img src="https://i1.wp.com/bluefeatherquill.com/wp-content/uploads/2017/02/cropped-cropped-LATEST-LOGO-HALF-SIZE-BLUE-FEATHER.jpg" height="50"> -->
+                    <img src="/media/blogo.jpg" height="50">                    
                     <!-- Collapsed Hamburger -->
                     <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>

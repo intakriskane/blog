@@ -6,6 +6,7 @@
 
 @section('content')
 
+    <!-- breadcrumbs -->
     <div>
         <ul class="breadcrumb">
             <li><a href="/">Home</a></li>
@@ -13,11 +14,22 @@
         </ul>
     </div>
 
-    <div>some bunch of articles </div>
-    <div>
-    @foreach($tasks as $task)
-        <li>{{ $task->body }}</li>
+    <!-- articles -->
+    @foreach ($allArticles as $post)
+        <ul><strong>{{ $post->title }}</strong></ul>
+        <ul>{{ $post->intro }}</ul>
+        <ul>
+            <a href="" class="right" style="float: right">
+                Read more...
+            </a>
+        </ul>
+        </br>
     @endforeach
+    <div>
+
+
+
+
     </div>
 
 @endsection
