@@ -1,5 +1,6 @@
 <?php
 
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,20 +41,38 @@ Route::any('/login', function () {
 // })->name("articles");
 
 //individual article in it's own page
-Route::any('/articles/{post}', function($id){
-    $article = DB::table('posts')->find($id);
-    return view('posts.article', compact('article'));
-})->name("post");
+// Route::any('/articles/{post}', function($id){
+//     $article = DB::table('posts')->find($id);
+//     return view('posts.article', compact('article'));
+// })->name("post");
 
 //all articles in Articles page
+// Route::any('/articles', function(){
+//     $allArticles = DB::table('posts')->get();
+//     return view('posts.articles', compact('allArticles'));
+// })->name("articles");
+
+//all articles in page + ordered by newest on top
+// Route::any('/articles', function(){
+//     $allArticles = DB::table('posts')->orderBy('created_at', 'desc')->get();
+//     return view('posts.articles', compact('allArticles'));
+// })->name("articles");
+
+
+//all articles in Articles page with Eloquent
 Route::any('/articles', function(){
-    $allArticles = DB::table('posts')->get();
+    $allArticles = Post::all();
     return view('posts.articles', compact('allArticles'));
 })->name("articles");
 
+//individual article in it's own page - Eloquent
+Route::any('/articles/{post}', function($id){
+    $article = Post::find($id);
+    return view('posts.article', compact('article'));
+})->name("post");
 
-
+//all articles in page + ordered by newest on top - Eloquent
 Route::any('/articles', function(){
-    $allArticles = DB::table('posts')->orderBy('created_at', 'desc')->get();
+    $allArticles = Post::Desc()->get();
     return view('posts.articles', compact('allArticles'));
 })->name("articles");
