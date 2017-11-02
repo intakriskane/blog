@@ -11,8 +11,14 @@ class Post extends Model
     //         return $allArticles->orderBy('created_at', 'desc');
     // } 
 
+    //getting articles in descending order
     public function scopeDesc($allArticles)
     {
             return $allArticles->orderBy('created_at', 'desc');
     } 
+
+    public function scopeLatest($allArticles)
+    {
+        return $allArticles->orderBy('id', 'desc')->take(3);
+    }
 }

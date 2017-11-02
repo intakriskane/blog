@@ -164,14 +164,14 @@
             </br>
         <!-- 3 most recent articles -->
         <div class="row">
-            @foreach ($top3 as $top)
+            @foreach ($latest3 as $latest)
                 <div class="column">
                     <div class="card">
                         <!-- <img src="img1.jpg" alt="Jane" style="width:100%"> -->
-                            <h4>{{ $top->title }}</h4>
-                            <p style="text-align: justify">{{ $top->intro }}</p>
+                            <h4>{{ $latest->title }}</h4>
+                            <p style="text-align: justify">{{ $latest->intro }}</p>
                             <p>
-                                <a href="/articles/{{ $top->id }}">
+                                <a href="/articles/{{ $latest->id }}">
                                     <button class="btn btn-dark">
                                         Read more...
                                     </button>
