@@ -1,10 +1,13 @@
 <?php
 
-// route to registration page
-Route::any('/register', 'Controller@register')->name("register");
+// get data from registration page
+Route::get('/register', 'UsersController@register')->name("register");
+
+//store data from registration form
+Route::post('/register', 'UsersController@store');
 
 // route to login page
-Route::any('/login', 'Controller@login')->name("login");
+Route::get('/login', 'Controller@login')->name("login");
 
 //home route with 3 latest articles
 Route::get('/', 'PostsController@latest3')->name("home");
