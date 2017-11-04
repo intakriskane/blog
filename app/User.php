@@ -9,4 +9,10 @@ class User extends Model
 {
     // whitelisted fields, that ar allowed to mass post to database
     protected $fillable = ['username', 'first_name', 'last_name', 'password', 'email'];
+    
+    //encrypting the password for storing in database
+    public function setPasswordAttribute($password)
+    {   
+        $this->attributes['password'] = bcrypt($password);
+    }
 }

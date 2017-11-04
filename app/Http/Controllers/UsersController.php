@@ -39,9 +39,11 @@ class UsersController extends Controller
         ]);
 
         User::create(request(['username', 'first_name', 'last_name', 'password']));
+        
         return redirect('/login');
 
     }
+
 
     /**
      * Display the specified resource.
