@@ -14,16 +14,32 @@ class PostsController extends Controller
         return view('posts.articles', compact('allArticles'));
     }
 
-    //get specific article
-    public function show($id)
+    //show articles
+    public function show(Post $post)
     {
-        $article = Post::find($id);
-        return view('posts.article', compact('article'));
+        return view('posts.article', compact('post'));
     }
 
+    //get last 3 articles
     public function latest3()
     {
         $latest3 = Post::Latest()->get();
         return view('welcome', compact('latest3'));
     }
+
+    //create new article
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    //save new article to database
+    public function store()
+    {        
+        Post::create(request(['title', 'intro', 'main']));
+        return redirect('/');
+
+    }
+
+
 }

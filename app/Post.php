@@ -21,4 +21,7 @@ class Post extends Model
     {
         return $allArticles->orderBy('id', 'desc')->take(3);
     }
+
+    // whitelisted fields, that ar allowed to mass post to database
+    protected $fillable = ['title', 'intro', 'main'];
 }

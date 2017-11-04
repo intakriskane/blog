@@ -17,6 +17,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('homestyle')
     @yield('postStyle')
+    @yield('createStyle')
+    @yield('articlesStyle')
+
     <style>
         .navbar{
             box-shadow: 0 4px 8px 0 #1D48EF;
@@ -123,4 +126,5 @@
     <script src="https://unpkg.com/vue"></script>       
     <script src="main.js" type="text/javascript"></script>
 </body>
+
 </html>
