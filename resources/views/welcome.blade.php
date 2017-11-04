@@ -76,7 +76,9 @@
             /* Add some shadows to create a card effect */
             .card {
                 box-shadow: 0 4px 8px 0 #1D48EF;
-
+                padding-top: 2px;
+                padding-left: 10px;
+                padding-right: 10px;
             }
 
             /* Some left and right padding inside the container */
@@ -96,17 +98,7 @@
                 margin-bottom: 7px;
             }
 
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                color: #1D48EF;
-                text-align: center;
-                box-shadow: 0 4px 8px 0 #1D48EF;
-            }
-
-            h2{
+            h2, h4{
                 color: #1D48EF;
             }
 
@@ -119,87 +111,79 @@
 @endsection
 
 @section('content')
-            <div class="content">
-                <!-- photo slides -->
-                <div class="title m-b-md">
-                    C'est la Vie!
+    <div class="content">
+        <!-- photo slides -->
+        <div class="title m-b-md">
+            C'est la Vie!
+        </div>
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                <!-- <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%"> -->
+                <img src="/media/img2.jpg" style="width:100%">
                 </div>
 
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                    </ol>
+                <div class="item">
+                <!-- <img src="https://www.w3schools.com/howto/img_fjords_wide.jpg" style="width:100%"> -->
+                <img src="/media/img1.jpg" style="width:100%">
+                </div>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                        <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
-                        </div>
+                <div class="item">
+                <!-- <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%"> -->
+                <img src="/media/img3.jpg" style="width:100%">
+                </div>
 
-                        <div class="item">
-                        <img src="https://www.w3schools.com/howto/img_fjords_wide.jpg" style="width:100%">
-                        </div>
-
-                        <div class="item">
-                        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
-                        </div>
-
-                        <div class="item">
-                        <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <!-- &#10094; -->
-                        <span class="glyphicon"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <!-- &#10095; -->
-                        <span class="glyphicon"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    </div>
-
-                <!-- 3 most recent articles -->
-                <div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <!-- <img src="img1.jpg" alt="Jane" style="width:100%"> -->
-                                <h2>Article 1</h2>
-                                <p>article intro text is coming in this place from db. Nul dekumi scivolema ni, far piko vato makro zo, vir laringalo prirespondi ot. Hav ci post eksbi greka. Be tria rilativa iam, ojd hemi tabelvorto as. </p>
-                                <p><button class="btn btn-dark">Read more...</button></p>
-                        </div>
-                    </div>
-                
-                    <div class="column">
-                        <div class="card">
-                            <!-- <img src="img2.jpg" alt="Mike" style="width:100%"> -->
-                                <h2>Article 2</h2>
-                                <p>article intro text is coming in this place from db. Nul dekumi scivolema ni, far piko vato makro zo, vir laringalo prirespondi ot. Hav ci post eksbi greka. Be tria rilativa iam, ojd hemi tabelvorto as. </p>
-                                <p><button class="btn btn-dark">Read more...</button></p>
-                        </div>
-                    </div>
-                
-                    <div class="column">
-                        <div class="card">
-                            <!-- <img src="img3.jpg" alt="John" style="width:100%"> -->
-                                <h2>Article 3</h2>
-                                <p>article intro text is coming in this place from db. Nul dekumi scivolema ni, far piko vato makro zo, vir laringalo prirespondi ot. Hav ci post eksbi greka. Be tria rilativa iam, ojd hemi tabelvorto as.</p>
-                                <p><button class="btn btn-dark">Read more...</button></p>
-                        </div>
-                    </div>
-              </div>
-
-            <div class="footer">
-                <p style="margin-top:3px">© Cake is a lie!</p>
+                <div class="item">
+                <!-- <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%"> -->
+                <img src="/media/img4.jpg" style="width:100%">
+                </div>
             </div>
 
-            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <!-- &#10094; -->
+                <span class="glyphicon"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <!-- &#10095; -->
+                <span class="glyphicon"></span>
+                <span class="sr-only">Next</span>
+            </a>
+         </div>
+            </br>
+        <!-- 3 most recent articles -->
+        <div class="row">
+            @foreach ($latest3 as $latest)
+                <div class="column">
+                    <div class="card">
+                        <!-- <img src="img1.jpg" alt="Jane" style="width:100%"> -->
+                            <h4>{{ $latest->title }}</h4>
+                            <p style="text-align: justify">{{ $latest->intro }}</p>
+                            <p>
+                                <a href="/articles/{{ $latest->id }}">
+                                    <button class="btn btn-dark">
+                                        Read more...
+                                    </button>
+                                </a>
+                            </p>
+                    </div>
+                </div>
+            @endforeach
         </div>
+
+
+
+    </div>
+</div>
 @endsection

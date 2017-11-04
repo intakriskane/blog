@@ -1,32 +1,32 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// get data from registration page
+Route::get('/register', 'UsersController@register')->name("register");
 
-//home route
-Route::get('/', function () {
-    return view('welcome');
-})->name("home");
-
-//articles route
-Route::get('/articles', function () {
-    return view('articles');
-})->name("articles");
-
-// route to registration page
-Route::any('/register', function () {
-    return view('register');
-})->name("register");
+//store data from registration form
+Route::post('/register', 'UsersController@store');
 
 // route to login page
-Route::any('/login', function () {
-    return view('login');
-})->name("login");
+Route::get('/login', 'Controller@login')->name("login");
+
+//home route with 3 latest articles
+Route::get('/', 'PostsController@latest3')->name("home");
+
+//all articles in Articles page with controllers
+Route::get('/articles', 'PostsController@index')->name("articles");
+
+//page for creating/editing posts
+Route::get('/articles/create', 'PostsController@create')->name("create");
+
+//individual article in it's own page 
+Route::get('/articles/{post}', 'PostsController@show')->name("post");
+
+//saving post to database
+Route::post('/articles', 'PostsController@store');
+
+
+
+
+
+
+

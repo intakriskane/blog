@@ -16,6 +16,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('homestyle')
+    @yield('postStyle')
+    @yield('createStyle')
+    @yield('articlesStyle')
+
     <style>
         .navbar{
             box-shadow: 0 4px 8px 0 #1D48EF;
@@ -27,6 +31,18 @@
         a{
             color: #1D48EF;
         }
+
+        .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background: #fff;
+                opacity: 0.8;
+                color: #1D48EF;
+                text-align: center;
+                box-shadow: 0 5px 8px 0 #1D48EF;
+            }
     </style>
 
 
@@ -43,7 +59,8 @@
             <div class="container">
                 <div class="navbar-header">
                     <!-- Branding Image -->
-                    <img src="https://i1.wp.com/bluefeatherquill.com/wp-content/uploads/2017/02/cropped-cropped-LATEST-LOGO-HALF-SIZE-BLUE-FEATHER.jpg" height="50">
+                    <!-- <img src="https://i1.wp.com/bluefeatherquill.com/wp-content/uploads/2017/02/cropped-cropped-LATEST-LOGO-HALF-SIZE-BLUE-FEATHER.jpg" height="50"> -->
+                    <img src="/media/blogo.jpg" height="50">                    
                     <!-- Collapsed Hamburger -->
                     <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -99,9 +116,15 @@
         @yield('content')
     </div>
 
+    <!-- footer -->
+    <div class="footer">
+        <p style="margin-top:3px">© Cake is a lie!</p>
+    </div>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://unpkg.com/vue"></script>       
     <script src="main.js" type="text/javascript"></script>
 </body>
+
 </html>
