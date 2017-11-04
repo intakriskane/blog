@@ -32,9 +32,14 @@
                 <label for="main">Main:</label>
                 <textarea class="form-control" id="main" name="main"></textarea>
             </div>
+            <div class="form-group">
+              <button type="publish" class="btn btn-primary">Publish</button> 
+            </div>
 
-            <button type="publish" class="btn btn-primary">Publish</button>
+            @include ('layouts.errors')
         </form>
+
+
 
     </div>
 

@@ -35,7 +35,12 @@ class PostsController extends Controller
 
     //save new article to database
     public function store()
-    {        
+    {     
+        $this->validate(request(), [
+            'title' => 'required',
+            'intro' => 'required|max:400',
+            'main' => 'required|min:400'
+        ]);   
         Post::create(request(['title', 'intro', 'main']));
         return redirect('/');
 
