@@ -50,6 +50,8 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+        
+        $('#alert').delay(3000).slideUp(300);
     </script>
 </head>
 <body>
@@ -106,6 +108,7 @@
                 </div>
             </div>
         </nav>
+
         @yield('content')
     </div>
 
@@ -116,6 +119,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="https://unpkg.com/vue"></script>       
     <script src="main.js" type="text/javascript"></script>
 </body>

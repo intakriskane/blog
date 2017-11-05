@@ -11,7 +11,7 @@ Route::post('/register', 'UsersController@store');
 Route::get('/login', 'SessionsController@create')->name("login");
 
 //logout
-// Route::post('/logout', 'SessionsController@destroy')->name("logout");
+Route::any('/logout', 'SessionsController@destroy')->name("logout");
 
 
 //user profile

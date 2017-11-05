@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 use App\User;
 use DB;
 
@@ -16,15 +17,15 @@ class SessionsController extends Controller
     }
 
     //checking if user is valid
-    public function store()
+    public function store(Request $request)
     {
         $this->validate(request(),[
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        $validUser = DB::table('users')->where('username', request('username'))->first();
-        
+        // $validUser = DB::table('users')->where('username', request('username'))->first();
+        $validUser = DB::table('users')->where('username', request('username', 'first_name'))->first();
         //checking if any user record has been found with enteres username
         if($validUser == null)
         {
@@ -36,11 +37,18 @@ class SessionsController extends Controller
             (Hash::check((request('password')), ($validUser->password)))
         )
             { //if combo found
-                dd(session());
-                //keep session open
-                $validUser->session()->reflash();
+                // dd($user);
+                // dd(session());
+                // dd($validUser);    
+                $request->session()->put('username',$validUser->username);
+                $request->session()->put('first_name',$validUser->first_name);     
+                session()->flash('message', 'You are now logged in!');           
+                // session(['message' => 'You are now logged in!']);
+                // dd(session());
+                // dd(session('message'));
+                // dd(session()->token());
                 //redirect to user profile/home page?
-                return redirect('/')->with('activeUser', $validUser->username);
+                return redirect('/');
             }
         //if combo not found
         else
@@ -51,13 +59,14 @@ class SessionsController extends Controller
 
     }
 
-
-    // public function destroy()
-    // {
-    //     //logging out:
-    //     auth()->logout();
-    //     return redirect('/');
-    // }
+    //logout & destroy session
+    public function destroy()
+    {
+        //logging out:
+        session()->flush();
+        //redirect to home page after logout
+        return redirect('/');
+    }
 
 
 }

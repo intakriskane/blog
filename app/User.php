@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class User extends Model
+class User extends Model //implements Authenticatable
 {
     // whitelisted fields, that ar allowed to mass post to database
     protected $fillable = ['username', 'first_name', 'last_name', 'password', 'email'];
@@ -20,4 +19,6 @@ class User extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+
 }

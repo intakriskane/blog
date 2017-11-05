@@ -107,6 +107,15 @@
                 color: white;
             }
 
+            .alert{
+                position: absolute;
+                z-index: 10;
+                top: 70px;
+                right: 20px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
         </style>
 @endsection
 
@@ -116,11 +125,15 @@
         <div class="title m-b-md">
             C'est la Vie!
         </div>
-        @if(session('activeUser'))
+        @if(session('username'))
             <div class="form-group" style="margin-top: 15px">
-                <h4> {{ session('activeUser') }} </h4>
+                <h4> {{ session('first_name') }} </h4>
             </div>
+            @if(session('message') != null)
+                <div class="alert alert-success" id="alert">{{ session('message') }} </div>
+            @endif
         @endif
+
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -191,4 +204,5 @@
 
     </div>
 </div>
+
 @endsection
