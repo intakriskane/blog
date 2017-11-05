@@ -116,6 +116,11 @@
         <div class="title m-b-md">
             C'est la Vie!
         </div>
+        @if(session('activeUser'))
+            <div class="form-group" style="margin-top: 15px">
+                <h4> {{ session('activeUser') }} </h4>
+            </div>
+        @endif
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->

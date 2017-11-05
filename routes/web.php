@@ -1,13 +1,24 @@
 <?php
 
-// get data from registration page
-Route::get('/register', 'UsersController@register')->name("register");
+// get data from registration page to create new user
+Route::get('/register', 'UsersController@create')->name("register");
 
 //store data from registration form
 Route::post('/register', 'UsersController@store');
 
-// route to login page
-Route::get('/login', 'Controller@login')->name("login");
+
+//login + create a session
+Route::get('/login', 'SessionsController@create')->name("login");
+
+//logout
+// Route::post('/logout', 'SessionsController@destroy')->name("logout");
+
+
+//user profile
+// Route::post('/user', 'SessionsController@show')->name("profile");
+Route::post('/user', 'SessionsController@store');
+
+
 
 //home route with 3 latest articles
 Route::get('/', 'PostsController@latest3')->name("home");

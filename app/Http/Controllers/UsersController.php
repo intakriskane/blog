@@ -18,7 +18,7 @@ class UsersController extends Controller
     }
 
     //creating new user
-    public function register()
+    public function create()
     {
         return view('register');
     }
@@ -40,6 +40,11 @@ class UsersController extends Controller
 
         User::create(request(['username', 'first_name', 'last_name', 'password']));
         
+        //if logging in the user right after registration
+        // $user = User::create(request(['username', 'first_name', 'last_name', 'password']));
+        //signing in:
+        // auth()->login($user);
+
         return redirect('/login');
 
     }
