@@ -107,13 +107,19 @@
                 color: white;
             }
 
-            .alert{
+            #flash-message {
                 position: absolute;
                 z-index: 10;
                 top: 70px;
                 right: 20px;
                 font-size: 16px;
                 font-weight: bold;
+                animation: flash-message 3s forwards;
+            }
+
+            @keyframes flash-message {
+                0%   {opacity: 1;}
+                100% {opacity: 0; display:none;}
             }
 
         </style>
@@ -130,7 +136,7 @@
                 <h4> {{ session('first_name') }} </h4>
             </div>
             @if(session('message') != null)
-                <div class="alert alert-success" id="alert">{{ session('message') }} </div>
+                <div class="alert alert-success" id="flash-message">{{ session('message') }} </div>
             @endif
         @endif
 

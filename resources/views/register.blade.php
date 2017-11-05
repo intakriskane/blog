@@ -17,7 +17,6 @@
                 <h3>Enter the data &amp; register!</h3>
                 
                 <form method="POST" action="/register" >  
-                <!-- action="/user/{id}" ?? -->
                      {{ csrf_field() }}
                     <input type="text" placeholder="username:" name="username" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>                        
                     <input type="text" placeholder="first name:" name="first_name" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>                        

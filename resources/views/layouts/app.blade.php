@@ -50,8 +50,6 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
-        
-        $('#alert').delay(3000).slideUp(300);
     </script>
 </head>
 <body>

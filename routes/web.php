@@ -9,16 +9,10 @@ Route::post('/register', 'UsersController@store');
 
 //login + create a session
 Route::get('/login', 'SessionsController@create')->name("login");
+Route::post('/login', 'SessionsController@store')->name("login");
 
 //logout
 Route::any('/logout', 'SessionsController@destroy')->name("logout");
-
-
-//user profile
-// Route::post('/user', 'SessionsController@show')->name("profile");
-Route::post('/user', 'SessionsController@store');
-
-
 
 //home route with 3 latest articles
 Route::get('/', 'PostsController@latest3')->name("home");
@@ -37,7 +31,9 @@ Route::post('/articles', 'PostsController@store');
 
 
 
-
+//user profile
+// Route::post('/user', 'SessionsController@show')->name("profile");
+Route::get('/user', 'SessionsController@store');
 
 
 

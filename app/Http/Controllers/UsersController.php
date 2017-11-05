@@ -28,6 +28,8 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //save user ir database
     public function store()
     {
         $this->validate(request(), [
@@ -39,11 +41,6 @@ class UsersController extends Controller
         ]);
 
         User::create(request(['username', 'first_name', 'last_name', 'password']));
-        
-        //if logging in the user right after registration
-        // $user = User::create(request(['username', 'first_name', 'last_name', 'password']));
-        //signing in:
-        // auth()->login($user);
 
         return redirect('/login');
 

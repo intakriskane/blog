@@ -15,7 +15,7 @@
     <div class="row" style="margin-top: -25px">
         <div class="col">
             <h3>Log in and start writing!</h1>
-            <form method="POST" action="/user" > 
+            <form method="POST" action="/login" > 
                   {{ csrf_field() }}
                 <input type="text" placeholder="username:" name="username" style="margin-bottom: 5px" required><br>                        
                 <input type="password" placeholder="password:" name="password" style="margin-bottom: 5px"required><br>
