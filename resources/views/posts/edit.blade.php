@@ -21,6 +21,7 @@
             margin-left: 20px;
             margin-top: -30px;
         }
+
         textarea{ 
             width: 700px; 
             min-width:100%; 
@@ -46,7 +47,15 @@
         form{
             margin-top: -10px;
         }
-
+        #submitChanges{
+            float: right;
+        }
+        #deletePost{
+            position: absolute;
+            z-index: 10;
+            top: 20px;
+            right: 15px;
+        }
     </style>
 @endsection
 
@@ -58,27 +67,37 @@
 </ul>
 <div class="row">
     <div class="col-sm-8 blog-main">
-        <h3>Create a post</h3>
+        <h3>Edit a post</h3>
         <hr>
-        <form method="POST" action="/articles">
+        <form method="POST" action="/articles/{{ $post->id }} ">
+            {{ method_field('PATCH') }}
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" value="{{ $post->title }}">
             </div>
             <div class="form-group">
                 <label for="intro">Intro:</label>
-                <textarea class="form-control" id="intro" name="intro"></textarea>
+                <textarea class="form-control" id="intro" name="intro"> {{ $post->intro }} </textarea>
             </div>
             <div class="form-group">
                 <label for="main">Main:</label>
-                <textarea class="form-control" id="main" name="main"></textarea>
+                <textarea class="form-control" id="main" name="main"> {{ $post->main }} </textarea>
             </div>
             <div class="form-group">
-              <button type="publish" class="btn btn-primary">Publish</button> 
+              <button type="sumbit" class="btn btn-primary" id="submitChanges">Submit changes</button> 
             </div>
-
+            <!-- <div class="form-group">
+              <button type="delete" class="btn btn-danger" id="deletePost">Delete post</button> 
+            </div> -->
             @include ('layouts.errors')
+        </form>
+        <form method="POST" action="/articles/{{ $post->id }} ">
+            {{ method_field('DELETE') }} 
+            {{ csrf_field() }}
+            <div class="form-group">
+                <button type="delete" class="btn btn-danger" id="deletePost">Delete post</button> 
+            </div>
         </form>
 
     </div>

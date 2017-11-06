@@ -90,7 +90,11 @@
                     <td id="titleCol"><a href="/articles/{{ $post->id }}" style="color: #1D48EF">
                     <p><strong> {{ $post->title }}</strong></a></td>
                     <td>{{ $post->created_at->format('M j, Y \a\t g:iA') }}</td>
-                    <td> edit &nbsp delete</td>
+                    <td>
+                        <a href="/articles/{{ $post->id }}/edit">edit </a>
+                        &nbsp 
+                        <a href="/articles/{{ $post->id }}/edit">delete</a>
+                    </td>
                 </tr>
                 @endforeach
             </table>

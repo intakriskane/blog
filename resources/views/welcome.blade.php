@@ -126,15 +126,14 @@
         <div class="title m-b-md">
             C'est la Vie!
         </div>
-        @if(session('username'))
+        <!-- @if(session('username'))
             <div class="form-group" style="margin-top: 15px">
                 <h4> {{ session('first_name') }} </h4>
-            </div>
+            </div>@endif -->
             @if(session('message') != null)
                 <div class="alert alert-success" id="flash-message">{{ session('message') }} </div>
             @endif
-        @endif
-
+        
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->

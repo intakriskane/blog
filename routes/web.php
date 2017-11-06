@@ -20,14 +20,23 @@ Route::get('/', 'PostsController@latest3')->name("home");
 //all articles in Articles page with controllers
 Route::get('/articles', 'PostsController@index')->name("articles");
 
-//page for creating/editing posts
+//page for creating posts
 Route::get('/articles/create', 'PostsController@create')->name("create");
-
-//individual article in it's own page 
-Route::get('/articles/{post}', 'PostsController@show')->name("post");
 
 //saving post to database
 Route::post('/articles', 'PostsController@store');
+
+//editing post
+Route::get('/articles/{post}/edit', 'PostsController@edit');
+
+//save  editted post to database
+Route::patch('/articles/{post}', 'PostsController@update');
+
+//delete a post
+Route::delete('/articles/{post}', 'PostsController@delete');
+
+//individual article in it's own page 
+Route::get('/articles/{post}', 'PostsController@show')->name("post");
 
 //user profile
 Route::get('/user', 'UsersController@index');
