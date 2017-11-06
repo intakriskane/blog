@@ -25,13 +25,49 @@
         </ul>
     </div>
 
-    <!-- articles -->
+    <!-- article title & text -->
 
     <div class="container">
-    <p style="color: #1D48EF"><strong>{{ $post->title }}</strong></p>
-    <p>{{ $post->main }}</p>
+        <p style="color: #1D48EF"><strong>{{ $post->title }}</strong></p>
+        <p class="meta_data"> 
+            {{ $post->created_at->format('M j, Y \a\t g:iA') }} by 
+
+            <a href="/author/{{ $post->user->id }}">
+                {{ $post->user->first_name }}
+            </a>
+        </p>
+        <p>{{ $post->main }}</p>
+    </div>
+    <hr>
+    <!-- displaying comments -->
+    <div><strong>Comments:</strong></div>
+    
+    <div class="comments">
+        <ul class="list-group">
+            @foreach ($post->comments as $comment)
+            <li class="list-group-item">
+            <strong> {{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
+                {{ $comment->body }}
+            </li>
+            @endforeach
+        </ul>
     </div>
 
+    <!-- field for adding comment -->
+    <hr>
+        <div class="card-block">
+            <form method="POST" action="/articles/{{$post->id}}/comments">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <textarea name="body" placeholder="Your comment here..." class="form-control">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add comment</button> 
+                </div>
+                
+            </form>
+        </div>
 @endsection
 
 

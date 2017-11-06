@@ -29,5 +29,29 @@ class Post extends Model
     }
 
     // whitelisted fields, that ar allowed to mass post to database
-    protected $fillable = ['title', 'intro', 'main'];
+    protected $fillable = ['title', 'intro', 'main', 'user_id'];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function addComment($body)
+    {
+        Comment::create([
+            'body' => request('body'),
+            'post_id' => $this->id,
+            'user_id' => session('user_id'),
+        ]);
+    }
+
+    // public function addPost($title, $intro, $main)
+    // {
+    //     Post::create([
+    //         'title' => request('title'),
+    //         'intro' => request('intro'),
+    //         'main' =>  request('main'),
+    //         'user_id' => session('user_id'),
+    //     ]);
+    // }
 }

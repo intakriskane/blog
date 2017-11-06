@@ -32,5 +32,8 @@ Route::post('/articles', 'PostsController@store');
 //user profile
 Route::get('/user', 'UsersController@index');
 
+//page with all posts by specific author
+Route::get('/author/{id}', 'AuthorsController@index');
 
-
+//save comment to database 
+Route::post('/articles/{post}/comments', 'CommentsController@store');

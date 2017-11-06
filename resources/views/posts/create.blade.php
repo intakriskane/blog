@@ -9,13 +9,20 @@
         h3{
             color: #1D48EF;
         }
-
+        .sidebar-module {
+            padding: 2px;
+        }
+        .sidebar-module-inset {
+            padding: 2px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
     </style>
 @endsection
 
 @section('content')
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8 blog-main">
         <h3>Create a post</h3>
         <hr>
         <form method="POST" action="/articles">

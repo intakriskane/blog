@@ -102,11 +102,6 @@
                 color: #1D48EF;
             }
 
-            .btn-dark{
-                background: #1D48EF;
-                color: white;
-            }
-
             #flash-message {
                 position: absolute;
                 z-index: 10;
@@ -196,7 +191,7 @@
                             <p style="text-align: justify">{{ $latest->intro }}</p>
                             <p>
                                 <a href="/articles/{{ $latest->id }}">
-                                    <button class="btn btn-dark">
+                                    <button class="btn btn-primary">
                                         Read more...
                                     </button>
                                 </a>

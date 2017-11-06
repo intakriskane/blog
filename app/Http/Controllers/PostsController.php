@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
 use Illuminate\Http\Request;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -39,16 +39,22 @@ class PostsController extends Controller
     }
 
     //save new article to database
-    public function store()
+    public function store(Post $post)
     {     
         $this->validate(request(), [
             'title' => 'required',
             'intro' => 'required|max:400',
             'main' => 'required|min:400'
         ]);   
-        Post::create(request(['title', 'intro', 'main']));
+        // Post::create(request(['title', 'intro', 'main']));
+        // $post->addPost(request('title', 'intro', 'main'));
+        Post::create([
+            'title' => request('title'),
+            'intro' => request('intro'),
+            'main' =>  request('main'),
+            'user_id' => session('user_id'),
+        ]);    
         return redirect('/');
-
     }
 
 

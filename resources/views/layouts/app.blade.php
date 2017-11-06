@@ -28,8 +28,26 @@
         .btn-primary{
             background: #1D48EF;
         }
+        .btn-primary:hover{
+            background-color: #0026bf;
+            color: white;
+        }
+
+        .btn-dark{
+            background: #343A40;
+            color: white;
+        }
+        .btn-dark:hover{
+            background-color: #545a60;
+            color: white;
+        }
+
         a{
             color: #1D48EF;
+        }
+        a:hover{
+            color: #1D48EF;
+            text-shadow: 1px 1px 1px #a8b9ff;
         }
 
         .footer {
