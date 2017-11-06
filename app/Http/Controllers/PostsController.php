@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('loggedIn', ['only' => ['create', 'store']]);
+    }
+
     //get all articles
     public function index()
     {

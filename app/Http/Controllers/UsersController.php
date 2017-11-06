@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('loggedIn', ['only' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return view('user');
     }
 
     //creating new user

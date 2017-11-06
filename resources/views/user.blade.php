@@ -15,7 +15,11 @@
     <div class="row" style="margin-top: -25px">
         <div class="col">
 
-            <h3>Hello, username !</h1>
+
+            @if(session('username'))
+                <h3>Hello, {{ session('first_name') }}!</h3>
+
+             @endif
         </div>
 
     </div>

@@ -42,6 +42,7 @@ class SessionsController extends Controller
                 // dd($validUser);    
                 $request->session()->put('username',$validUser->username);
                 $request->session()->put('first_name',$validUser->first_name);     
+                $request->session()->put('token', session('_token'));                     
                 session()->flash('message', 'You are now logged in!');           
                 // session(['message' => 'You are now logged in!']);
                 // dd(session());

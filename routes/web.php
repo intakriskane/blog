@@ -29,11 +29,8 @@ Route::get('/articles/{post}', 'PostsController@show')->name("post");
 //saving post to database
 Route::post('/articles', 'PostsController@store');
 
-
-
 //user profile
-// Route::post('/user', 'SessionsController@show')->name("profile");
-Route::get('/user', 'SessionsController@store');
+Route::get('/user', 'UsersController@index');
 
 
 
