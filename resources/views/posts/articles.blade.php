@@ -33,11 +33,20 @@
         <div class="col-sm-8 blog-main">
             <!-- articles -->
             @foreach ($allArticles as $post)
-                <ul style="color: #1D48EF">
+                <ul>
                     <strong>
-                        <a href="/articles/{{ $post->id }}">
+                        <a href="/articles/{{ $post->id }}" style="color: #1D48EF">
                             {{ $post->title }}
                         </a>
+                        <p class="meta_data"> 
+                            <!-- {{ $post->created_at->toFormattedDateString() }} by  -->
+                            <!-- {{ $post->created_at->toDayDateTimeString() }} by  -->
+                            {{ $post->created_at->format('M j, Y \a\t g:iA') }} by 
+
+                            <a href="">
+                                {{ $post->user->first_name }}
+                            </a>
+                        </p>
                     </strong>
                 </ul>
                 <ul>{{ $post->intro }}</ul>
