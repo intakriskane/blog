@@ -6,7 +6,7 @@
 
 @section('postStyle')
     <style>
-        .container{
+        #postTitle{
             width: 90%;
             text-align: justify;
             font-size: 16px;
@@ -28,7 +28,7 @@
     <!-- article title & text -->
 
     <div class="container">
-        <p style="color: #1D48EF"><strong>{{ $post->title }}</strong></p>
+        <p style="color: #1D48EF" id="postTitle"><strong>{{ $post->title }}</strong></p>
         <p class="meta_data"> 
             {{ $post->created_at->format('M j, Y \a\t g:iA') }} by 
 
@@ -59,7 +59,7 @@
             <form method="POST" action="/articles/{{$post->id}}/comments">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <textarea name="body" placeholder="Your comment here..." class="form-control">
+                    <textarea name="body" placeholder="Your comment here..." class="form-control" required>
                     </textarea>
                 </div>
                 <div class="form-group">
@@ -68,6 +68,8 @@
                 
             </form>
         </div>
+        @include ('layouts.errors')
+
 @endsection
 
 

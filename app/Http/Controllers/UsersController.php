@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -19,7 +20,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('user');
+        $id = session('user_id');
+        $userArticles = Post::Desc()->where('user_id', '=', $id)->get();
+        return view('user', compact('userArticles'));
+
+        //before
+        // return view('user');
     }
 
     //creating new user

@@ -17,10 +17,19 @@
             background-color: #f5f5f5;
             border-radius: 5px;
         }
+        .blog-main{
+            margin-left: 20px;
+            margin-top: -30px;
+        }
     </style>
 @endsection
 
 @section('content')
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/articles">Articles</a></li>
+    <li>Create new article</li>
+</ul>
 <div class="row">
     <div class="col-sm-8 blog-main">
         <h3>Create a post</h3>
@@ -46,10 +55,9 @@
             @include ('layouts.errors')
         </form>
 
-
-
     </div>
 
+        <!-- put a gallery here or pic upload -->
     <aside class="col-sm-3 ml-sm-auto blog-sidebar">
         <div class="sidebar-module sidebar-module-inset">
             <h4>About</h4>

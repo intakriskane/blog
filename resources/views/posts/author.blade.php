@@ -24,6 +24,7 @@
     <div>
         <ul class="breadcrumb">
             <li><a href="/">Home</a></li>
+            <li><a href="/articles">Articles</a></li>
             <li>{{ $author }} </li>
         </ul>
     </div>
@@ -34,7 +35,7 @@
                 <ul>
                     <strong>
                         <a href="/articles/{{ $post->id }}" style="color: #1D48EF">
-                            {{ $post->title }}
+                        <p class="articleTitle"> {{ $post->title }} </p>
                         </a>
                         <p class="meta_data"> 
                             <!-- {{ $post->created_at->toFormattedDateString() }} by  -->

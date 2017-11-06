@@ -28,21 +28,47 @@
         .btn-primary{
             background: #1D48EF;
         }
+        .btn-primary:hover{
+            background-color: #0026bf;
+            color: white;
+        }
+
+        .btn-dark{
+            background: #343A40;
+            color: white;
+        }
+        .btn-dark:hover{
+            background-color: #545a60;
+            color: white;
+        }
+
         a{
             color: #1D48EF;
         }
+        a:hover{
+            color: #1D48EF;
+            text-shadow: 1px 1px 1px #a8b9ff;
+        }
 
         .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background: #fff;
-                opacity: 0.8;
-                color: #1D48EF;
-                text-align: center;
-                box-shadow: 0 5px 8px 0 #1D48EF;
-            }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            opacity: 0.8;
+            color: #1D48EF;
+            text-align: center;
+            box-shadow: 0 5px 8px 0 #1D48EF;
+        }
+
+        .app{
+            margin-bottom: -40px;
+            overflow: auto;
+        }
+
+
     </style>
 
     <!-- Scripts -->
@@ -106,6 +132,7 @@
                 </div>
             </div>
         </nav>
+
         @yield('content')
     </div>
 
@@ -114,8 +141,11 @@
         <p style="margin-top:3px">© Cake is a lie!</p>
     </div>
 
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="https://unpkg.com/vue"></script>       
     <script src="main.js" type="text/javascript"></script>
 </body>

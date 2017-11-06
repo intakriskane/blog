@@ -47,7 +47,6 @@ class PostsController extends Controller
             'main' => 'required|min:400'
         ]);   
         // Post::create(request(['title', 'intro', 'main']));
-        // $post->addPost(request('title', 'intro', 'main'));
         Post::create([
             'title' => request('title'),
             'intro' => request('intro'),

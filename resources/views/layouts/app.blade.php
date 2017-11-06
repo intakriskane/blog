@@ -19,8 +19,18 @@
     @yield('postStyle')
     @yield('createStyle')
     @yield('articlesStyle')
+    @yield('userStyle')
 
     <style>
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            height: 100vh;
+            margin: 0;
+        }
+
         .navbar{
             box-shadow: 0 4px 8px 0 #1D48EF;
         }
@@ -42,25 +52,36 @@
             color: white;
         }
 
-        a{
+        a, a:link, a:visited {
             color: #1D48EF;
         }
-        a:hover{
+        a:hover, a:active{
             color: #1D48EF;
             text-shadow: 1px 1px 1px #a8b9ff;
         }
 
         .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background: #fff;
-                opacity: 0.8;
-                color: #1D48EF;
-                text-align: center;
-                box-shadow: 0 5px 8px 0 #1D48EF;
-            }
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            opacity: 0.8;
+            color: #1D48EF;
+            text-align: center;
+            box-shadow: 0 5px 8px 0 #1D48EF;
+        }
+
+        .breadcrumb{
+            background-color: #fff;
+        }
+
+        .articleTitle{
+            font-size: 17px;
+            font-style: bold;
+        }
+
     </style>
 
     <!-- Scripts -->
@@ -72,59 +93,35 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- Branding Image -->
-                    <img src="/media/blogo.jpg" height="40">                    
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('Blog', 'Blogly')}} 
-                    </a>
-                </div>
+        <header>
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Branding Image -->
+                        <img src="/media/blogo.jpg" height="40">                    
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            {{ config('Blog', 'Blogly')}} 
+                        </a>
+                    </div>
                 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::check())
-                            <li><a href="#" ml-auto>{{ Auth::user()->username }}</a></li>
-                        @endif
-                        @if (Auth::guest())
+            
+                    <ul class="nav navbar-nav navbar-right" id="menu">
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('articles') }}">Articles</a></li>
+                        @if (!session('username'))
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->username }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
                         @endif
+                        @if (session('username'))
+                            <li><a href="{{ route('logout') }}">Logout</a></li>
+                            <li><a href="/user">{{ session('first_name') }}</a></li>
+                        @endif
+                    
                     </ul>
-                </div>
-            </div>
-        </nav>
 
+                </div>
+            </nav>
+        </header>
         @yield('content')
     </div>
 
@@ -132,6 +129,8 @@
     <div class="footer">
         <p style="margin-top:3px">© Cake is a lie!</p>
     </div>
+
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

@@ -45,13 +45,4 @@ class Post extends Model
         ]);
     }
 
-    // public function addPost($title, $intro, $main)
-    // {
-    //     Post::create([
-    //         'title' => request('title'),
-    //         'intro' => request('intro'),
-    //         'main' =>  request('main'),
-    //         'user_id' => session('user_id'),
-    //     ]);
-    // }
 }
