@@ -10,6 +10,7 @@
             width: 90%;
             text-align: justify;
             font-size: 16px;
+            margin-left: -15px;
         }
 
         ol {
@@ -51,7 +52,7 @@
         <ul class="breadcrumb">
             <li><a href="/">Home</a></li>
             <li><a href="/articles">Articles</a></li>
-            <li>{{ $post->title }}</li>
+            <li> {{ $post->title }} </li>
         </ul>
     </div>
 
@@ -67,17 +68,20 @@
             </p>
         </div>
         @if($post->user->id === session('user_id'))
-        <div class="col-xs-6">
-            <ul class="use-controls">
-                <ol><a href="/articles/{{ $post->id }}/edit">                        
-                    <button class="btn btn-primary" id="ctrl1"> Edit </button>
-                </a></ol> 
-                <ol><a href="/articles/{{ $post->id }}/edit">
-                <button class="btn btn-danger" id="ctrl2"> Delete </button>
-                </a></ol>          
-            </ul>
-        </div>
+            <div class="col-xs-6">
+                <ul class="use-controls">
+                    <ol><a href="/articles/{{ $post->id }}/edit">                        
+                        <button class="btn btn-primary" id="ctrl1"> Edit </button>
+                    </a></ol> 
+                    <ol><a href="/articles/{{ $post->id }}/edit">
+                    <button class="btn btn-danger" id="ctrl2"> Delete </button>
+                    </a></ol>          
+                </ul>
+            </div>
         @endif
+    </div>
+    <div class="container">
+        <p id="articleText">{{ $post->main }}</p>
     </div>
     <div class="container">
         <p id="articleText">{{ $post->main }}</p>

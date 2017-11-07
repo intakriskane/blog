@@ -7,15 +7,26 @@
 @section('articlesStyle')
     <style>
         /* Sidebar modules for boxing content */
-        /* .sidebar-module {
-            padding: 2px;
-        }
-        .sidebar-module-inset {
-            padding: 2px;
-            background-color: #f5f5f5;
+        .sidebar-about {
+            padding: 6px;
+            text-align: justify;
+            background-color: #ededed;
             border-radius: 5px;
-        } */
-        
+            margin-bottom: 5px;
+        }
+        .sidebar-module {
+            padding: 6px;
+            border-radius: 5px;
+            background-color: #ededed;
+            margin-bottom: 5px; 
+        }
+        h4{
+            color: #1D48EF;
+            margin-left: 3px;
+        }
+        li{
+            margin-left: 10px;
+        }
         /* create new article button */
         #newPost {
             position: absolute;
@@ -86,6 +97,7 @@
 
         .pages{
             float: left;
+            margin-left: 40px;
         }
     </style>
 @endsection
@@ -149,9 +161,9 @@
         </div>
 
         <aside class="col-sm-3 ml-sm-auto blog-sidebar">
-            <div class="sidebar-module sidebar-module-inset">
+            <div class="sidebar-about">
                 <h4>About</h4>
-                <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                <p>I've got an idea – an idea so smart that my head would explode if I even began to know what I'm talking about.</p>
             </div>
             <div class="sidebar-module">
                 <h4>Archives</h4>
@@ -167,9 +179,9 @@
             <div class="sidebar-module">
                 <h4>Elsewhere</h4>
                 <ol class="list-unstyled">
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
+                    <li><a href="https://github.com/intakriskane/blog">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
                 </ol>
             </div>
         </aside>

@@ -34,6 +34,10 @@
             margin: 0;
         }
 
+        /* #app{
+            height:110%;
+            margin-bottom: 50px !Important;
+        } */
         .navbar{
             box-shadow: 0 4px 8px 0 #1D48EF;
         }
@@ -63,19 +67,6 @@
             text-shadow: 1px 1px 1px #a8b9ff;
         }
 
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 40px;
-            background: #fff;
-            opacity: 0.8;
-            color: #1D48EF;
-            text-align: center;
-            box-shadow: 0 5px 8px 0 #1D48EF;
-        }
-
         .breadcrumb{
             background-color: #fff;
         }
@@ -90,13 +81,26 @@
         input[type="password"]:focus,
         input[type="email"]:focus,
         input[type="body"]:focus {   
-            box-shadow: 0 1px 8px 0 #0026bf;
-            
+            box-shadow: 0 1px 8px 0 #0026bf;  
         }
 
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            opacity: 0.8;
+            color: #1D48EF;
+            text-align: center;
+            box-shadow: 0 5px 8px 0 #1D48EF;
+        }
 
-
-
+        .space{
+            height: 60px;
+        }
+        
     </style>
 
     <!-- Scripts -->
@@ -138,12 +142,26 @@
             </nav>
         </header>
         @yield('content')
+        <div class="space" class="row">
+        </div>
+            
     </div>
+
+
+
 
     <!-- footer -->
     <div class="footer">
         <p style="margin-top:3px">© Cake is a lie!</p>
     </div>
+
+
+
+
+
+
+
+
 
 
 

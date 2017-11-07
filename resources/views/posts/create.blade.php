@@ -75,6 +75,10 @@
                 <textarea class="form-control" id="main" name="main"></textarea>
             </div>
             <div class="form-group">
+                <label for="image">Image (enter URL of the image):</label>
+                <input type="text" class="form-control" id="title" name="image">
+            </div>
+            <div class="form-group">
               <button type="publish" class="btn btn-primary">Publish</button> 
             </div>
 

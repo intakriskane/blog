@@ -57,12 +57,14 @@ class PostsController extends Controller
             'intro' => 'required|max:400',
             'main' => 'required|min:400'
         ]);   
+        // dd(request());
         // Post::create(request(['title', 'intro', 'main']));
         Post::create([
             'title' => request('title'),
             'intro' => request('intro'),
             'main' =>  request('main'),
             'user_id' => session('user_id'),
+            'image' => request('image'),
         ]);    
         session()->flash('message', 'Your post has been published!');                   
         return redirect('/');
