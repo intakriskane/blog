@@ -6,14 +6,14 @@
 
 @section('homestyle')
         <style>
-            html, body {
+            /* html, body {
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
-            }
+            } */
 
             .full-height {
                 height: 100vh;
@@ -101,10 +101,20 @@
             h2, h4{
                 color: #1D48EF;
             }
+            /* flash message & disappearing */
+            #flash-message {
+                position: absolute;
+                z-index: 10;
+                top: 70px;
+                right: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                animation: flash-message 3s forwards;
+            }
 
-            .btn-dark{
-                background: #1D48EF;
-                color: white;
+            @keyframes flash-message {
+                0%   {opacity: 1;}
+                100% {opacity: 0; display:none;}
             }
 
         </style>
@@ -116,6 +126,10 @@
         <div class="title m-b-md">
             C'est la Vie!
         </div>
+            @if(session('message') != null)
+                <div class="alert alert-success" id="flash-message">{{ session('message') }} </div>
+            @endif
+        
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -172,7 +186,7 @@
                             <p style="text-align: justify">{{ $latest->intro }}</p>
                             <p>
                                 <a href="/articles/{{ $latest->id }}">
-                                    <button class="btn btn-dark">
+                                    <button class="btn btn-primary">
                                         Read more...
                                     </button>
                                 </a>
@@ -186,4 +200,5 @@
 
     </div>
 </div>
+
 @endsection

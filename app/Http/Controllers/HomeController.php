@@ -28,14 +28,6 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    //get blog posts
-
-
-
-
-
-
-
 
     // public function user($userId)
     // {

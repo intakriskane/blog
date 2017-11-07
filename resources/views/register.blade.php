@@ -17,15 +17,12 @@
                 <h3>Enter the data &amp; register!</h3>
                 
                 <form method="POST" action="/register" >  
-                <!-- action="/user/{id}" ?? -->
                      {{ csrf_field() }}
-                    <!-- data is coming from registration form -->
-                    <input type="hidden" name="source" value="registration_form" >
-                    <input type="text" placeholder="username:" name="username" style="border: 1px #1D48EF solid; margin-bottom: 5px"><br>                        
-                    <input type="text" placeholder="first name:" name="first_name" style="border: 1px #1D48EF solid; margin-bottom: 5px"><br>                        
-                    <input type="text" placeholder="last name:" name="last_name" style="border: 1px #1D48EF solid; margin-bottom: 5px"><br>                        
-                    <input type="password" placeholder="password:" name="password" style="border: 1px #1D48EF solid; margin-bottom: 5px"><br>
-                    <input type="password" placeholder="confirm password:" name="password_confirmation" style="border: 1px #1D48EF solid; margin-bottom: 5px"><br>
+                    <input type="text" placeholder="username:" name="username" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>                        
+                    <input type="text" placeholder="first name:" name="first_name" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>                        
+                    <input type="text" placeholder="last name:" name="last_name" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>                        
+                    <input type="password" placeholder="password:" name="password" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>
+                    <input type="password" placeholder="confirm password:" name="password_confirmation" style="border: 1px #1D48EF solid; margin-bottom: 5px" required><br>
                     <!-- html5 validation -->
                     <input type="email" placeholder="email:" name="email" style="margin-bottom: 5px"><br> 
                     <input type="submit" class="btn btn-primary" value="Register" style="margin-top: 5px"><br>

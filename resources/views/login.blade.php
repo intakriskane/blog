@@ -15,14 +15,10 @@
     <div class="row" style="margin-top: -25px">
         <div class="col">
             <h3>Log in and start writing!</h1>
-            @if (isset ($_GET['error'])):
-            <div style="color:red;"> username / password combination is invalid</div>
-            @endif
-            <form action="home.php" method="post">  
-                <!-- data coming from login form -->
-                <input type="hidden" name="source" value="login_form" >
-                <input type="text" placeholder="username:" name="username" style="margin-bottom: 5px"><br>                        
-                <input type="password" placeholder="password:" name="password" style="margin-bottom: 5px"><br>
+            <form method="POST" action="/login" > 
+                  {{ csrf_field() }}
+                <input type="text" placeholder="username:" name="username" style="margin-bottom: 5px" required><br>                        
+                <input type="password" placeholder="password:" name="password" style="margin-bottom: 5px"required><br>
                 <input type="submit" class="btn btn-primary" value="Login" style="margin-top: 5px"><br>
             </form>
         </div>
@@ -33,14 +29,17 @@
             </a>
         </div> 
     </div>
-    <div class="row">
-        <div class="col">
-            @if(isset($message)){
-                    echo '<label class="text-danger">'.$message.'</label>';
-                }
-           @endif
+
+    @if(session('loginError'))
+        <div class="form-group" style="margin-top: 15px">
+            <div class="alert alert-danger">
+                {{ session('loginError') }}
+            </div>
         </div>
-    </div>
+    @endif
+
+    @include ('layouts.errors')
+
 @endsection
 
 
