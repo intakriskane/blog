@@ -75,7 +75,7 @@ class PostsController extends Controller
         {   
             // dd($request);
             $post->update($request->all());
-
+            session()->flash('message', 'Your post has been updated!');
             return redirect('/user');
         }
 

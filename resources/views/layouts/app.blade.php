@@ -121,7 +121,6 @@
             });
         }
 
-        //target for main text area
         function minCounter() {
             $('#main').keyup(function() {
                 var text_length = $('#main').val().length;

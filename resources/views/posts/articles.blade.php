@@ -99,6 +99,13 @@
             float: left;
             margin-left: 40px;
         }
+
+
+        #commentCount { 
+            float:right;
+            width:15%;
+            margin-left: 30px;
+        }
     </style>
 @endsection
 
@@ -128,7 +135,7 @@
                         <a href="/articles/{{ $post->id }}">
                            <p class="articleTitle"> {{ $post->title }} </p>
                         </a>
-                        <p class="meta_data"> 
+                        <p class="meta_data" class="split-para"> 
                             {{ $post->created_at->format('M j, Y \a\t g:iA') }} by 
                             <a href="/author/{{ $post->user->id }}">
                                 {{ $post->user->first_name }}
@@ -144,6 +151,7 @@
                                     <i class="fa fa-trash" aria-hidden="true" style="font-size: 18px"></i>
                                 </a>
                             @endif
+                            <span id="commentCount">{{ $post->comments->count() }} comments </span>
                         </p>
                     </strong>
                 </ul>

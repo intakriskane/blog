@@ -42,6 +42,24 @@
         }
         #commentField:focus{
             box-shadow: 0 1px 8px 0 #0026bf;
+        }
+
+        /* flash message & disappearing */
+        #flash-message {
+            position: absolute;
+            z-index: 10;
+            top: 120px;
+            right: 320px;
+            font-size: 16px;
+            font-weight: bold;
+            animation: flash-message 3s forwards;
+        }
+        @keyframes flash-message {
+            0%   {opacity: 1;}
+            100% {opacity: 0; display:none;}
+        }
+
+
     </style>
 @endsection
 
@@ -56,6 +74,11 @@
         </ul>
     </div>
 
+    <!-- flash message -->
+    @if(session('message') != null)
+        <div class="alert alert-success" id="flash-message">{{ session('message') }} </div>
+    @endif
+
     <!-- article title & text -->
     <div class="container">
         <div class="col-xs-6">
@@ -63,8 +86,9 @@
             <p class="meta_data"> 
                 {{ $post->created_at->format('M j, Y \a\t g:iA') }} by 
                 <a href="/author/{{ $post->user->id }}">
-                    {{ $post->user->first_name }}
-                </a>
+                    {{ $post->user->first_name }},
+                </a> &nbsp 
+                {{ $post->comments->count() }} comments
             </p>
         </div>
         @if($post->user->id === session('user_id'))

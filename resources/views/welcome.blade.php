@@ -101,7 +101,7 @@
             h2, h4{
                 color: #1D48EF;
             }
-
+            /* flash message & disappearing */
             #flash-message {
                 position: absolute;
                 z-index: 10;
@@ -126,10 +126,6 @@
         <div class="title m-b-md">
             C'est la Vie!
         </div>
-        <!-- @if(session('username'))
-            <div class="form-group" style="margin-top: 15px">
-                <h4> {{ session('first_name') }} </h4>
-            </div>@endif -->
             @if(session('message') != null)
                 <div class="alert alert-success" id="flash-message">{{ session('message') }} </div>
             @endif

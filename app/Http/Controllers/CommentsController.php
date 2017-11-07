@@ -22,7 +22,7 @@ class CommentsController extends Controller
         // dd(request());
         $post->addComment(request('body'));
         
-
+        session()->flash('message', 'Your comment has been added!'); 
         return back();
     }
 }

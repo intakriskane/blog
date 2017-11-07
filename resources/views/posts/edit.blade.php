@@ -51,8 +51,9 @@
         form{
             margin-top: -10px;
         }
-        #submitChanges{
+        #submitChanges, #return{
             float: right;
+            margin-right: 5px; 
         }
         #deletePost{
             position: absolute;
@@ -97,9 +98,12 @@
             <div class="form-group">
               <button type="sumbit" class="btn btn-primary" id="submitChanges">Submit changes</button> 
             </div>
-            <!-- <div class="form-group">
-              <button type="delete" class="btn btn-danger" id="deletePost">Delete post</button> 
-            </div> -->
+            <div class="form-group">
+                <a href="/articles"> 
+                    <button type="sumbit" class="btn btn-primary" id="return">Maybe later...</button> 
+                 </a>
+            </div>
+
             @include ('layouts.errors')
         </form>
         <!-- delete post -->

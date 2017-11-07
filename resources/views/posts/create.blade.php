@@ -71,7 +71,7 @@
                 <input type="text" class="form-control" id="title" name="title">
             </div>
             <div class="form-group">
-                <label for="intro">Intro:</label>
+                <label for="intro">Intro (max 400 characters):</label>
                 <textarea class="form-control" id="intro" name="intro" onkeyup="counter()" maxlength="400"></textarea>
                 <strong><h5 class="pull-right" id="count_message"></h5></strong>
             </div>
