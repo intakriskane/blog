@@ -110,7 +110,7 @@
     </div>
     <!-- text -->
     <div class="container">
-        <p id="articleText">{{ $post->main }}</p>
+        <p id="articleText"> {!! nl2br(e($post->main)) !!} </p> 
     </div>
     <hr>
     <!-- displaying comments -->

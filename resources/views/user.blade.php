@@ -85,7 +85,7 @@
                     <ol><a href="/articles/create">                        
                         <button class="btn btn-primary" id="ctrl1"> Create new post </button>
                     </a></ol> 
-                    <ol><a href="">
+                    <ol><a href="/user/{{session('user_id')}}/settings">
                     <button class="btn btn-primary" id="ctrl2"> Settings </button>
                     </a></ol>          
                 </ul>

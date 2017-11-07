@@ -66,7 +66,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('settings');
     }
 
     /**
@@ -80,6 +80,11 @@ class UsersController extends Controller
         //
     }
 
+
+
+
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -87,10 +92,35 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //new password check & update
+        // $this->validate(request(), [
+        //     'old password' => 'required',
+        //     'new password' => 'required|min:8|confirmed',
+        //     'password_confirmation' => 'required|min:8'
+        // ]);   
+
+        $validUser = DB::table('users')->where('username', request('username', 'first_name'))->first();
+        if((($validUser->username) === request('username')) && 
+        (Hash::check((request('password')), ($validUser->password))))
+        {
+            $user->update($request->all());
+            session()->flash('message', 'Your password has been changed!');
+            return redirect('/user');
+        }
+        return back();
+
+
+
     }
+
+
+
+
+
+
+
 
     /**
      * Remove the specified resource from storage.

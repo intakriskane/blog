@@ -6,7 +6,6 @@ Route::get('/register', 'UsersController@create')->name("register");
 //store data from registration form
 Route::post('/register', 'UsersController@store');
 
-
 //login + create a session
 Route::get('/login', 'SessionsController@create')->name("login");
 Route::post('/login', 'SessionsController@store')->name("login");
@@ -40,6 +39,12 @@ Route::get('/articles/{post}', 'PostsController@show')->name("post");
 
 //user profile
 Route::get('/user', 'UsersController@index');
+
+//user settings
+Route::get('/user/{id}/settings', 'UsersController@show')->name("settings");
+
+//save new settings
+Route::patch('/user', 'UsersController@update');
 
 //page with all posts by specific author
 Route::get('/author/{id}', 'AuthorsController@index');
