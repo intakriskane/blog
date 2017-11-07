@@ -28,6 +28,19 @@
         #articleText{
             text-align: justify;
         }
+        textarea{ 
+            width: 700px; 
+            min-width:100%; 
+            max-width:100%; 
+            resize: none;
+        }
+        #commentField{
+            height:120px; 
+            min-height:120px;  
+            max-height:120px;
+        }
+        #commentField:focus{
+            box-shadow: 0 1px 8px 0 #0026bf;
     </style>
 @endsection
 
@@ -71,33 +84,35 @@
     </div>
     <hr>
     <!-- displaying comments -->
-    <div><strong>Comments:</strong></div>
-    
-    <div class="comments">
-        <ul class="list-group">
-            @foreach ($post->comments as $comment)
-            <li class="list-group-item">
-            <strong> {{ $comment->created_at->diffForHumans() }}: &nbsp </strong>
-                {{ $comment->body }}
-            </li>
-            @endforeach
-        </ul>
-    </div>
+    <div class="container">
+        <div><strong>Comments:</strong></div>
+        
+        <div class="comments">
+            <ul class="list-group">
+                @foreach ($post->comments as $comment)
+                <li class="list-group-item">
+                <strong> {{ $comment->created_at->diffForHumans() }} by {{ $comment->user->first_name }}: &nbsp </strong>
+                    {{ $comment->body }}
+                </li>
+                @endforeach
+            </ul>
+        </div>
 
-    <!-- field for adding comment -->
-    <hr>
-        <div class="card-block">
-            <form method="POST" action="/articles/{{$post->id}}/comments">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <textarea name="body" placeholder="Your comment here..." class="form-control" required>
-                    </textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Add comment</button> 
-                </div>
-                
-            </form>
+        <!-- field for adding comment -->
+        <hr>
+            <div class="card-block">
+                <form method="POST" action="/articles/{{$post->id}}/comments">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <textarea name="body" id="commentField" placeholder="Your comment here..." class="form-control" required>
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add comment</button> 
+                    </div>
+                    
+                </form>
+            </div>
         </div>
         @include ('layouts.errors')
 

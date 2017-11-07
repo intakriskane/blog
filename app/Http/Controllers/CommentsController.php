@@ -11,7 +11,7 @@ class CommentsController extends Controller
     public function store(Post $post)
     {
         $this->validate(request(), [
-            'body' => 'required',
+            'body' => 'required | min:3',
         ]);
 
         // Comment::create([
@@ -19,8 +19,9 @@ class CommentsController extends Controller
         //     'post_id' => $post->id,
         //     'user_id' => session('user_id'),
         // ]);
-        
+        // dd(request());
         $post->addComment(request('body'));
+        
 
         return back();
     }

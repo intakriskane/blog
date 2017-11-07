@@ -88,7 +88,8 @@
         textarea:focus,
         input[type="text"]:focus,
         input[type="password"]:focus,
-        input[type="email"]:focus {   
+        input[type="email"]:focus,
+        input[type="body"]:focus {   
             box-shadow: 0 1px 8px 0 #0026bf;
             
         }

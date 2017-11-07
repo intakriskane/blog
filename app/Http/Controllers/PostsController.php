@@ -20,7 +20,6 @@ class PostsController extends Controller
         return view('posts.articles', compact('allArticles'));
     }
 
-
     //show article
     public function show(Post $post)
     {
