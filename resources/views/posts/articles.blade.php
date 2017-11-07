@@ -52,6 +52,41 @@
         #introText{
             text-align: justify;
         }
+
+        .pagination>.active>a,
+        .pagination>.active>a:focus,
+        .pagination>.active>a:hover,
+        .pagination>.active>span,
+        .pagination>.active>span:focus,
+        .pagination>.active>span:hover {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #1D48EF;
+            border-color: #1D48EF;
+            margin-right: 5px; 
+            border-radius: 5px;
+        }
+
+        .pagination a {
+            margin: 0 5px; 
+            border-radius: 5px;
+        }
+
+        .pagination > li > a:focus,
+        .pagination > li > a:hover,
+        .pagination > li > span:focus,
+        .pagination > li > span:hover {
+            z-index: 3;
+            color: #1D48EF;
+            font-weight: bold;
+            background-color: #d3d3d3;
+            border-radius: 5px;
+        }
+
+        .pages{
+            float: left;
+        }
     </style>
 @endsection
 
@@ -107,7 +142,11 @@
                 </ul>
                 </br></br>
             @endforeach
-        <div>
+            <div class="pages">
+                {{ $allArticles->links() }}
+            </div>
+            
+        </div>
 
         <aside class="col-sm-3 ml-sm-auto blog-sidebar">
             <div class="sidebar-module sidebar-module-inset">
@@ -136,6 +175,8 @@
         </aside>
 
     </div>
+   
+
 
 
 @endsection

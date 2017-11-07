@@ -16,9 +16,10 @@ class PostsController extends Controller
     //get all articles
     public function index()
     {
-        $allArticles = Post::Desc()->get();
+        $allArticles = Post::Desc()->paginate(5);
         return view('posts.articles', compact('allArticles'));
     }
+
 
     //show article
     public function show(Post $post)
