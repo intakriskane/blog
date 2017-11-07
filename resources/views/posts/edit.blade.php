@@ -92,13 +92,19 @@
             </div> -->
             @include ('layouts.errors')
         </form>
-        <form method="POST" action="/articles/{{ $post->id }} ">
+        <!-- delete post -->
+        <form method="POST" action="/articles/{{ $post->id }}" >
             {{ method_field('DELETE') }} 
             {{ csrf_field() }}
             <div class="form-group">
                 <button type="delete" class="btn btn-danger" id="deletePost">Delete post</button> 
             </div>
         </form>
+
+
+
+
+
 
     </div>
 

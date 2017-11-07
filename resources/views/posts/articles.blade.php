@@ -43,6 +43,15 @@
             /* margin-top: -30px; */
             width: 70%;
         }
+        .fa-pencil:hover, .fa-trash:hover {
+            color: #1D48EF;
+        }
+        .fa-pencil, .fa-trash {
+            color: black;
+        }
+        #introText{
+            text-align: justify;
+        }
     </style>
 @endsection
 
@@ -76,11 +85,22 @@
                             {{ $post->created_at->format('M j, Y \a\t g:iA') }} by 
                             <a href="/author/{{ $post->user->id }}">
                                 {{ $post->user->first_name }}
-                            </a>
+                            </a> &nbsp &nbsp &nbsp
+                            <!-- if active user is author of the article, delete&edit will be displayed -->
+                            @if($post->user->id === session('user_id'))
+                                <a href="/articles/{{ $post->id }}/edit">
+                                    <!-- <img src="/media/edit.ico" height='16'> -->
+                                    <i class="fa fa-pencil" aria-hidden="true" style="font-size: 18px"></i>
+                                </a> &nbsp
+                                <a href="/articles/{{ $post->id }}/edit">
+                                    <!-- <img src="/media/delete.ico" height='20'> -->
+                                    <i class="fa fa-trash" aria-hidden="true" style="font-size: 18px"></i>
+                                </a>
+                            @endif
                         </p>
                     </strong>
                 </ul>
-                <ul>{{ $post->intro }} </br>
+                <ul id="introText">{{ $post->intro }} </br>
                     <a href="/articles/{{ $post->id }}" class="right" style="float: right">
                         Read more...
                     </a>

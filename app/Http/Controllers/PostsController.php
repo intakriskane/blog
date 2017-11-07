@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('loggedIn', ['only' => ['create', 'store']]);
+        $this->middleware('loggedIn', ['only' => ['create', 'store', 'delete', 'update', 'edit']]);
     }
 
     //get all articles
@@ -81,6 +81,7 @@ class PostsController extends Controller
         public function delete(Post $post)
         {
             // dd('delete?');
+
             $post->delete();
             
             return redirect('/user');
