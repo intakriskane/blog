@@ -29,7 +29,7 @@ class Post extends Model
     }
 
     // whitelisted fields, that ar allowed to mass post to database
-    protected $fillable = ['title', 'intro', 'main', 'user_id'];
+    protected $fillable = ['title', 'intro', 'main', 'user_id', 'image'];
 
     public function comments()
     {

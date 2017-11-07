@@ -108,6 +108,28 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
+        
+        //character counter
+        function counter() {
+            var text_max = 400;
+            $('#count_message').html(text_max + ' remaining');
+            $('#intro').keyup(function() {
+                var text_length = $('#intro').val().length;
+                var text_remaining = text_max - text_length;
+                $('#count_message').html(text_remaining + ' remaining');
+
+            });
+        }
+
+        //target for main text area
+        function minCounter() {
+            $('#main').keyup(function() {
+                var text_length = $('#main').val().length;
+                $('#target').html(text_length + ' and counting...');
+
+            });
+        }
+
     </script>
 </head>
 <body>
@@ -163,12 +185,10 @@
 
 
 
-
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="https://unpkg.com/vue"></script>       
+    <!-- <script src="https://unpkg.com/vue"></script>        -->
     <script src="main.js" type="text/javascript"></script>
 </body>
 

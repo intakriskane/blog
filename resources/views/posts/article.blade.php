@@ -80,9 +80,11 @@
             </div>
         @endif
     </div>
+    <!-- image -->
     <div class="container">
-        <p id="articleText">{{ $post->main }}</p>
+        <img src="{{ $post->image }}" style="width:100%">
     </div>
+    <!-- text -->
     <div class="container">
         <p id="articleText">{{ $post->main }}</p>
     </div>

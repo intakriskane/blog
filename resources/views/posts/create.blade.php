@@ -6,8 +6,12 @@
 
 @section('createStyle')
     <style>
-        h3{
+        h3, h5{
             color: #1D48EF;
+        }
+        h4{
+            color: #1D48EF;
+            margin-left: 3px;
         }
         .sidebar-module {
             padding: 2px;
@@ -68,11 +72,13 @@
             </div>
             <div class="form-group">
                 <label for="intro">Intro:</label>
-                <textarea class="form-control" id="intro" name="intro"></textarea>
+                <textarea class="form-control" id="intro" name="intro" onkeyup="counter()" maxlength="400"></textarea>
+                <strong><h5 class="pull-right" id="count_message"></h5></strong>
             </div>
             <div class="form-group">
-                <label for="main">Main:</label>
-                <textarea class="form-control" id="main" name="main"></textarea>
+                <label for="main">Main (min 400 characters):</label>
+                <textarea class="form-control" id="main" name="main" onkeyup="minCounter()" minlength="400"></textarea>
+                <strong><h5 class="pull-right" id="target"></h5></strong>
             </div>
             <div class="form-group">
                 <label for="image">Image (enter URL of the image):</label>
@@ -87,11 +93,11 @@
 
     </div>
 
-        <!-- put a gallery here or pic upload -->
+            <!-- put a gallery here or pic upload -->
     <aside class="col-sm-3 ml-sm-auto blog-sidebar">
-        <div class="sidebar-module sidebar-module-inset">
+        <div class="sidebar-about">
             <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p>I've got an idea – an idea so smart that my head would explode if I even began to know what I'm talking about.</p>
         </div>
         <div class="sidebar-module">
             <h4>Archives</h4>
@@ -107,9 +113,9 @@
         <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
+                <li><a href="https://github.com/intakriskane/blog">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/">Facebook</a></li>
             </ol>
         </div>
     </aside>

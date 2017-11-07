@@ -11,7 +11,7 @@
            margin-left: 15px;
        }
         .postList{
-            width: 70%;
+            width: 100%;
             margin-left: 50px;
         }
 
